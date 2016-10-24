@@ -1,0 +1,12 @@
+@import '../common/base';
+@import '../common/mixins';
+
+.login-container {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include transform(translate(-50%, -50%));
+    @include perspective(800px);
+    
+}
