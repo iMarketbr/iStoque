@@ -1,12 +1,86 @@
 @import '../common/base';
 @import '../common/mixins';
+@import '../common/components';
 
-.login-container {
-    width: 100%;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    @include transform(translate(-50%, -50%));
-    @include perspective(800px);
+.login {
+    background-color: $background-gray;
+    height: calc(100% - 4px);
+    position: relative;
     
+    .container {
+        width: 90%;
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        @include transform(translate(-50%, -50%));
+        @include perspective(800px);
+
+        .title {
+            text-align: center;
+            margin-bottom: 0.5em;
+            font-family: 'amatic';
+            font-weight: 500;
+            font-size: 4em;
+        }
+
+        .content {
+            background: $primary-color-light;
+            border-radius: 5px;
+            padding: 1em 1em 3em;
+
+            .subtitle {
+                color: white;
+                display: block;
+                font-size: 1.6em;
+                margin-bottom: 1em;
+            }
+
+            .text-field {
+                border: none;
+                padding: 1em;
+                width: calc(100% - 2em);
+                font-size: 1.2em;
+                display: block;
+                margin: 1em 0;
+                border-radius: 5px;
+
+                &:focus {
+                    outline: none;
+                }
+
+                &.email {
+                    
+                }
+
+                &.password {
+                    
+                }
+            }
+
+            .confirm-button {
+                position: absolute;
+                bottom: -1em;
+                right: -1em;
+            }
+        }
+    }
+}
+
+
+@media (min-width: 700px) {
+    .login {
+    
+        .container {
+            width: 40%; 
+        }
+    }
+}
+
+@media (min-width: 1100px) {
+    .login {
+    
+        .container {
+            width: 30%; 
+        }
+    }
 }

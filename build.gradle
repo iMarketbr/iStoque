@@ -61,6 +61,10 @@ dependencies {
     compile "org.springframework.composed:spring-composed:1.0.0.BUILD-SNAPSHOT"
 
     compile "net.sourceforge.nekohtml:nekohtml:1.9.21"
+    
+    compile 'org.springframework.security:spring-security-web'
+    compile 'org.springframework.security:spring-security-config'
+    compile 'org.springframework.security.oauth:spring-security-oauth2:2.0.11.RELEASE'
 }
 
 bootRun {
