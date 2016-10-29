@@ -14,6 +14,9 @@
             <h1 class="title">iStoque</h1>
             <form action="/login" method="POST" class="content">
                 <h2 class="subtitle">Login</h2>
+                <div th:if="${param.error}">
+                    <p class="invalid-login">Credenciais inválidas</p>
+                </div>
                 <input type="email" name="username" placeholder="E-mail" class="text-field email" required/>
                 <input type="password" name="password" placeholder="Senha" class="text-field password" required/>
             
