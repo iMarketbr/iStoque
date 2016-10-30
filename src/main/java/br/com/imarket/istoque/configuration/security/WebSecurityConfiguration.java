@@ -33,9 +33,9 @@ class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
-            	.loginPage("/")
+            	.loginPage("/login")
 	            .loginProcessingUrl("/login")
-	            .defaultSuccessUrl("/home")
+	            .defaultSuccessUrl("/")
 	            .permitAll()
 	            .and()
             .logout()
@@ -43,7 +43,7 @@ class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
             	.clearAuthentication(true)
                 .deleteCookies(cookieName)
                 .invalidateHttpSession(true)
-                .logoutSuccessUrl("/")
+                .logoutSuccessUrl("/login")
                 .and()
             .rememberMe().rememberMeServices(rememberMeServices());
     }

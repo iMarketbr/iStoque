@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class HomeController {
 
-	@Get("/home")
+	@Get("/")
 	public String index() {
 		return "home/index";
 	}

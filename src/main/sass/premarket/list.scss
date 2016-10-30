@@ -1,0 +1,108 @@
+@import '../common/base';
+@import '../common/header';
+@import '../common/components';
+
+.premarket {
+    
+    .title {
+        font-size: 1.8em;
+        padding: 1em;
+        text-align: center;
+    }
+    
+    .table {
+        margin: auto;
+        background: $primary-color-light;
+        color: white;
+        border: 1px solid $primary-color;
+        
+        td {
+            text-align: center;
+            padding: 1.4em 0;
+        }
+        
+        th {
+            background-color: $primary-color;
+            font-weight: 500;
+            font-size: 1.2em;
+            padding: 1em 2em;
+        }
+
+        tbody tr {
+            cursor: pointer;
+            &:hover {
+                background-color: #BF2238;
+            }
+        }
+    }
+}
+.modal {
+ 
+    .title {
+        font-size: 1.6em;
+        text-align: center;
+        margin-bottom: 1em;
+    }
+    
+    .name {
+        margin-bottom: 1em  ;
+    }
+    
+    .option-row {
+        display: block;
+        margin: 1em 0;
+        
+        label {
+            font-size: 1.2em;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        
+        #disapprove-reason:checked {
+            ~ .disapprove-box {
+                display: block;
+            }
+        }
+    }
+    
+    .disapprove-box {
+        display: none;
+        margin-top: 1em;
+        margin-left: 1em;
+        
+        .text {
+            font-size: 1.2em;
+            padding: 0.5em;
+            width: 100%;
+            
+            &:focus {
+                outline: none;
+                border: 1px solid $primary-color-light;
+            }
+        }
+    }
+    
+    .btn-confirm {
+        cursor: pointer;
+        display: block;
+        margin: auto; 
+        border: 1px solid $primary-color-light;
+        background: white;
+        color: $primary-color-light;
+        padding: 0.75em 2em;
+        @include transition(0.1s);
+        
+        &:hover {
+            background: $primary-color-light;
+            color: white;
+        }
+    }
+    
+    a.close-modal[class*="close"] {
+        border-radius: 50%;
+        
+        background: white url($images-dir + 'close.svg') no-repeat;
+        background-position: 50%;
+        background-size: 70%;    
+    }
+}

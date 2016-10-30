@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class LoginController {
 
-	@Get("/")
+	@Get("/login")
 	public String index() {
 		return "login/index";
 	}

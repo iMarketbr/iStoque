@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>iStoque | Login</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" type="text/css" href="/vendor/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="/dist/login/index.css"/>
-</head>
-<body>
-    <main class="login">
-        
+<html xmlns:layout="http://www.thymeleaf.org" xmlns:th="http://www.thymeleaf.org"
+      layout:include="fragments/page :: page(
+      title='Login',
+      header=false,
+      css='login/index'
+      )">
+    <main class="login" layout:fragment="content">
         <section class="container" >
             <h1 class="title">iStoque</h1>
             <form action="/login" method="POST" class="content">
@@ -22,7 +17,6 @@
             
                 <button value="" class="fab confirm-button"/></button>
             </form>
-        </section>
+        </section> 
     </main>
-</body>
 </html>

@@ -1,13 +1,64 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>iStoque | Home</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" type="text/css" href="/vendor/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="/dist/home/index.css"/>
-</head>
-<body>
-    <div th:replace="fragments/header :: header"></div>
-</body>
+<html xmlns:layout="http://www.thymeleaf.org" xmlns:th="http://www.thymeleaf.org"
+      layout:include="fragments/page :: page(
+      title='PreMarkets',
+      header=true,
+      css='premarket/list',
+      js='premarket'
+      )">
+    <main class="premarket" layout:fragment="content">
+        <h2 class="title">Mercados para aprovação</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Endereço</th>
+                    <th>CEP</th>
+                    <th>Cidade</th>
+                    <th>Bairro</th>
+                    <th>Nº</th>
+                    <th>Estado</th>
+                    <th>CNPJ</th>
+                    <th>Delivery</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="premarket-row" th:each="preMarket,i : ${preMarkets}">
+                    <td class="name" th:text="${preMarket.name}"></td>
+                    <td th:text="${preMarket.email}"></td>
+                    <td th:text="${preMarket.address.address}"></td>
+                    <td th:text="${preMarket.address.cep}"></td>
+                    <td th:text="${preMarket.address.city}"></td>
+                    <td th:text="${preMarket.address.neighborhood}"></td>
+                    <td th:text="${preMarket.address.number}"></td>
+                    <td th:text="${preMarket.address.state}"></td>
+                    <td th:text="${preMarket.cnpj}"></td>
+                    <td th:text="${preMarket.hasDelivery()} ? 'Sim' : 'Não'"></td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="#options" rel="modal:open"></a>
+        <article id="options" class="modal" style="display:none;">
+            <header>
+                <h3 class="title">Aprovar ou recusar cadastro do mercado</h3>
+            </header>
+            <main>
+                <p class="name">Nome: </p>
+                
+                <div class="option-row">
+                    <input id="approve" type="radio" name="option" value="true" checked>
+                    <label for="approve">Aprovar</label>
+                </div>
+                <div class="option-row">
+                    <input id="disapprove-reason" type="radio" name="option" value="false">
+                    <label for="disapprove-reason">Recusar</label>
+                    <div class="disapprove-box">
+                        <textarea rows="3" placeholder="Descreva o motivo" class="text"></textarea>
+                    </div>
+                </div>
+                
+                <button class="btn-confirm">Confirmar</button>
+            </main>
+        </article>
+    </main>
 </html>

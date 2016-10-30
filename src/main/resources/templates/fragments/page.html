@@ -3,14 +3,18 @@
       xmlns:th="http://www.thymeleaf.org" 
       layout:fragment="page">
 <head>
-    <title>iStoque | Home</title>
+    <title th:text="'iStoque | ' + ${title}"></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="/vendor/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="/dist/home/index.css"/>
+    <link th:if="${css}" rel="stylesheet" type="text/css" th:href="'/dist/' + ${css} + '.css'"/>
+    <link rel="stylesheet" href="/vendor/jquery.modal.css" type="text/css" media="screen" />
+    <script src="/js/jquery-3.1.1.min.js"></script>
+    <script src="/js/jquery.modal.min.js"></script>
+    <script th:if="${js}" th:src="'/js/' + ${js} + '.js'"></script>
 </head>
 <body>
-    <div th:if="${header} == true" th:replace="fragments/header :: header"></div>
-    <div layout:fragment="content">
+    <div th:if="${header} == true" th:include="fragments/header :: header"  th:remove="tag"></div>
+    <div layout:fragment="content"></div>
 </body>
 </html>

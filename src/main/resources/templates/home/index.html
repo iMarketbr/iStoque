@@ -1,7 +1,8 @@
 <html xmlns:layout="http://www.thymeleaf.org" xmlns:th="http://www.thymeleaf.org"
-      layout:include="fragments/page"
-      th:with="header=false">
-<div layout:fragment="content">
-    home
-</div>
+      layout:include="fragments/page :: page(
+      title='Home',
+      header=true,
+      css='home/index'
+      )">
+    <main layout:fragment="content"></main>
 </html>
