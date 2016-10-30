@@ -1,26 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>iStoque | Home</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" type="text/css" href="/vendor/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="/dist/home/index.css"/>
-</head>
-<body>
-    <header class="header">
-        <div class="logo-container"><img alt="logo" src="/assets/images/logo.png"></div>
-        <navigation class="menu dropdown">
-            <p>Operações</p>
-            <nav class="dropdown-content">
-                <a href="/premarkets" class="link">PreMarkets</a>
-            </nav>
-        </navigation>
-        <h1>iStoque</h1>
-        <nav class="options">
-            <a href="/configuracoes" class="link">Configurações</a>
-            <a href="/logout" class="link">Sair</a>
-        </nav>
-    </header>
-</body>
+<html xmlns:layout="http://www.thymeleaf.org" xmlns:th="http://www.thymeleaf.org"
+      layout:include="fragments/page"
+      th:with="header=false">
+<div layout:fragment="content">
+    home
+</div>
 </html>

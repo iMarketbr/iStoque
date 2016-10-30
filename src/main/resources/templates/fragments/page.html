@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html >
+<html xmlns:layout="http://www.thymeleaf.org" 
+      xmlns:th="http://www.thymeleaf.org" 
+      layout:fragment="page">
 <head>
     <title>iStoque | Home</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -8,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="/dist/home/index.css"/>
 </head>
 <body>
-    <div th:replace="fragments/header :: header"></div>
+    <div th:if="${header} == true" th:replace="fragments/header :: header"></div>
+    <div layout:fragment="content">
 </body>
 </html>
