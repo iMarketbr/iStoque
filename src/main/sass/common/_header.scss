@@ -1,6 +1,5 @@
 .header {
     position: relative;
-    display: block;
     border-bottom: 2px dashed $primary-color-light;
     display: flex;
     background-color: #eee;
@@ -26,6 +25,7 @@
         height: 100%;
         line-height: 4em;
         cursor: pointer;
+        width: calc(100% - 8em);
     }
     
     h1 {

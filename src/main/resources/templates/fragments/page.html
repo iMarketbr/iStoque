@@ -6,11 +6,11 @@
     <title th:text="'iStoque | ' + ${title}"></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" type="text/css" href="/vendor/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="/vendor/css/reset.css"/>
     <link th:if="${css}" rel="stylesheet" type="text/css" th:href="'/dist/' + ${css} + '.css'"/>
-    <link rel="stylesheet" href="/vendor/jquery.modal.css" type="text/css" media="screen" />
-    <script src="/js/jquery-3.1.1.min.js"></script>
-    <script src="/js/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="/vendor/css/jquery.modal.css" type="text/css" media="screen" />
+    <script src="/vendor/js/jquery-3.1.1.min.js"></script>
+    <script src="/vendor/js/jquery.modal.min.js"></script>
     <script th:if="${js}" th:src="'/js/' + ${js} + '.js'"></script>
 </head>
 <body>
