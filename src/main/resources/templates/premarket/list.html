@@ -10,6 +10,7 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Nome</th>
                     <th>E-mail</th>
                     <th>Endereço</th>
@@ -24,6 +25,7 @@
             </thead>
             <tbody>
                 <tr class="premarket-row" th:each="preMarket,i : ${preMarkets}">
+                    <td class="id" th:text="${preMarket.id}"></td>
                     <td class="name" th:text="${preMarket.name}"></td>
                     <td th:text="${preMarket.email}"></td>
                     <td th:text="${preMarket.address.address}"></td>
@@ -45,19 +47,22 @@
             <main>
                 <p class="name">Nome: </p>
                 
-                <div class="option-row">
-                    <input id="approve" type="radio" name="option" value="true" checked>
-                    <label for="approve">Aprovar</label>
-                </div>
-                <div class="option-row">
-                    <input id="disapprove-reason" type="radio" name="option" value="false">
-                    <label for="disapprove-reason">Recusar</label>
-                    <div class="disapprove-box">
-                        <textarea rows="3" placeholder="Descreva o motivo" class="text"></textarea>
+                <form action="#" th:action="@{/premarkets}" th:object="${preMarketFromView}" method="POST">
+                    <input type="hidden" th:field="*{id}" class="id">
+                    <div class="option-row">
+                        <input id="approve" type="radio" name="option" value="true" th:field="*{approved}" checked>
+                        <label for="approve">Aprovar</label>
                     </div>
-                </div>
-                
-                <button class="btn-confirm">Confirmar</button>
+                    <div class="option-row">
+                        <input id="disapprove-reason" type="radio" name="option" value="false" th:field="*{approved}">
+                        <label for="disapprove-reason">Recusar</label>
+                        <div class="disapprove-box">
+                            <textarea rows="3" placeholder="Descreva o motivo" class="text" th:field="*{disapprovedText}"></textarea>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-confirm">Confirmar</button>
+                </form>
             </main>
         </article>
     </main>

@@ -2,6 +2,7 @@ package br.com.imarket.istoque.api;
 
 import static java.util.Arrays.asList;
 import static org.springframework.http.HttpMethod.GET;
+import static org.springframework.http.HttpMethod.POST;
 
 import java.util.Collections;
 import java.util.List;
@@ -16,6 +17,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestOperations;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 @Component
 public class IMarketAPI<T> {
 	
@@ -25,6 +29,8 @@ public class IMarketAPI<T> {
 	private HttpHeaders headers;
 	@Autowired
 	private RestOperations restOperations;
+	@Autowired
+	private ObjectMapper mapper;
 	
 	@Value("${api.endpoint}")
 	private String baseEndpoint;
@@ -44,6 +50,30 @@ public class IMarketAPI<T> {
 			return Collections.emptyList();
 		}
 		return Collections.emptyList();
+	}
+	
+	public void post(String endpoint, Object object, APICallback callback) {
+		
+		String json = null;
+		try {
+			json = mapper.writeValueAsString(object);
+		} catch (JsonProcessingException e) {
+			LOGGER.error("Error serializing POST request body", e);
+			callback.error();
+		}
+		
+		HttpEntity<String> entity = new HttpEntity<>(json, headers);
+		
+		try {
+			ResponseEntity<Void> response = restOperations.exchange(baseEndpoint + endpoint, POST, entity, Void.class);
+
+			if (response.getStatusCode().is2xxSuccessful()) {
+				callback.success();
+			}
+		} catch (Exception e) {
+			LOGGER.error("Cannot request POST from api", e);
+			callback.error();
+		}
 	}
 	
 }
