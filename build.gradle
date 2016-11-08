@@ -6,8 +6,6 @@ apply plugin: 'com.github.robfletcher.compass'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 compileJava.options.encoding = 'UTF-8'
-group = 'br.com.imarket'
-archivesBaseName = 'istoque'
 
 buildscript {
     repositories {
