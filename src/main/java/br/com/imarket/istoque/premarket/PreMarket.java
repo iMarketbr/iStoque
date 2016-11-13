@@ -60,11 +60,11 @@ public class PreMarket {
 		this.address = address;
 	}
 	
-	public boolean hasDelivery() {
+	public boolean isHasDelivery() {
 		return hasDelivery;
 	}
 	
-	public void setDelivery(boolean hasDelivery) {
+	public void setHasDelivery(boolean hasDelivery) {
 		this.hasDelivery = hasDelivery;
 	}
 

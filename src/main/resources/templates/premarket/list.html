@@ -35,7 +35,7 @@
                     <td th:text="${preMarket.address.number}"></td>
                     <td th:text="${preMarket.address.state}"></td>
                     <td th:text="${preMarket.cnpj}"></td>
-                    <td th:text="${preMarket.hasDelivery()} ? 'Sim' : 'Não'"></td>
+                    <td th:text="${preMarket.hasDelivery} ? 'Sim' : 'Não'"></td>
                 </tr>
             </tbody>
         </table>
@@ -57,7 +57,7 @@
                     <td class="name" th:text="${preMarket.name}"></td>
                     <td th:text="${preMarket.email}"></td>
                     <td th:text="${preMarket.cnpj}"></td>
-                    <td th:text="${preMarket.hasDelivery()} ? 'Sim' : 'Não'"></td>
+                    <td th:text="${preMarket.hasDelivery} ? 'Sim' : 'Não'"></td>
                     <td th:text="${preMarket.changeDate}"></td>
                 </tr>
             </tbody>
