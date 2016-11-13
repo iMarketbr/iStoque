@@ -12,26 +12,45 @@
     
     .table {
         margin: auto;
-        background: $primary-color-light;
-        color: white;
-        border: 1px solid $primary-color;
+        
+        thead {
+            border-bottom: none;
+        }
         
         td {
+            color: white;
             text-align: center;
-            padding: 1.4em 0;
+            padding: 1.2em 0.5em;
         }
         
         th {
-            background-color: $primary-color;
+            background-color: $background-gray;
+            color: black;
             font-weight: 500;
-            font-size: 1.2em;
+            font-size: 1em;
             padding: 1em 2em;
         }
-
-        tbody tr {
-            cursor: pointer;
-            &:hover {
-                background-color: #BF2238;
+        
+        .to-approve {
+            
+            tr {
+                background: $flat-blue;
+                color: white;
+                cursor: pointer;
+                &:hover {
+                    background-color: $flat-blue-selected;
+                }
+            }
+        }
+        .approved {
+            
+            tr {
+                background: $flat-green;
+            }
+        }
+        .not-approved {
+            tr {
+                background: $primary-color-light;
             }
         }
     }

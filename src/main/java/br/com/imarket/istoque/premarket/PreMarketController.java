@@ -9,6 +9,7 @@ import org.springframework.composed.web.Get;
 import org.springframework.composed.web.Post;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.imarket.istoque.api.APICallback;
@@ -32,11 +33,11 @@ public class PreMarketController {
 		return mav;
 	}
 	
-	@Post("/premarkets")
-	public ModelAndView change(@ModelAttribute PreMarketFromView preMarketFromView) {
+	@Post("/premarkets/{id}")
+	public ModelAndView change(@PathVariable Long id, @ModelAttribute PreMarketFromView preMarketFromView) {
 		ModelAndView mav = new ModelAndView("redirect:/premarkets");
 		
-		api.post(PREMARKETS + preMarketFromView.getId(), preMarketFromView, new APICallback() {
+		api.post(PREMARKETS + id, preMarketFromView, new APICallback() {
 			
 			@Override
 			public void success() {

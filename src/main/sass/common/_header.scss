@@ -28,14 +28,19 @@
         width: 20%;
     }
     
-    h1 {
+    .title {
         display: inline-block;
         text-align: center;
-        font-size: 3em;
-        padding-bottom: 0.3em;
-        font-family: "amatic";
-        font-weight: 500;
+        padding-bottom: 1em;
         width: 100%;
+        
+        a {
+            font-size: 3em;
+            font-family: "amatic";
+            font-weight: 500;
+            color: black;
+            text-decoration: none;
+        }
     }
     
     .options {

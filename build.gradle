@@ -51,7 +51,9 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-web:$SPRING_BOOT_VERSION"
     compile "org.springframework.boot:spring-boot-starter-jetty:$SPRING_BOOT_VERSION"
     compile "org.springframework:spring-webmvc:$SPRING_WEB_MVC_VERSION"
-    compile "org.springframework.boot:spring-boot-starter-thymeleaf:$SPRING_BOOT_VERSION" 
+    compile "org.springframework.boot:spring-boot-starter-thymeleaf:$SPRING_BOOT_VERSION"
+    compile "org.thymeleaf.extras:thymeleaf-extras-java8time:3.0.0.RELEASE"
+     
     compile "org.springframework.boot:spring-boot-devtools"
     compile "org.springframework.boot:spring-boot-starter-data-jpa"
     compile 'mysql:mysql-connector-java'

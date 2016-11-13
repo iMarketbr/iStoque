@@ -23,8 +23,8 @@
                     <th>Delivery</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr class="premarket-row" th:each="preMarket,i : ${preMarkets}">
+            <tbody class="to-approve">
+                <tr class="premarket-row" th:each="preMarket,i : ${preMarkets}" th:if="${not preMarket.approved and #strings.isEmpty(preMarket.disapprovedText)}">
                     <td class="id" th:text="${preMarket.id}"></td>
                     <td class="name" th:text="${preMarket.name}"></td>
                     <td th:text="${preMarket.email}"></td>
@@ -36,6 +36,52 @@
                     <td th:text="${preMarket.address.state}"></td>
                     <td th:text="${preMarket.cnpj}"></td>
                     <td th:text="${preMarket.hasDelivery()} ? 'Sim' : 'Não'"></td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="title">Mercados aprovados</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>CNPJ</th>
+                    <th>Delivery</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody class="approved">
+                <tr th:each="preMarket,i : ${preMarkets}" th:if="${preMarket.approved}">
+                    <td class="id" th:text="${preMarket.id}"></td>
+                    <td class="name" th:text="${preMarket.name}"></td>
+                    <td th:text="${preMarket.email}"></td>
+                    <td th:text="${preMarket.cnpj}"></td>
+                    <td th:text="${preMarket.hasDelivery()} ? 'Sim' : 'Não'"></td>
+                    <td th:text="${preMarket.changeDate}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="title">Mercados rejeitados</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>CNPJ</th>
+                    <th>Motivo</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody class="not-approved">
+                <tr th:each="preMarket,i : ${preMarkets}" th:if="${not preMarket.approved and not #strings.isEmpty(preMarket.disapprovedText)}">
+                    <td class="id" th:text="${preMarket.id}"></td>
+                    <td class="name" th:text="${preMarket.name}"></td>
+                    <td th:text="${preMarket.email}"></td>
+                    <td th:text="${preMarket.cnpj}"></td>
+                    <td th:text="${preMarket.disapprovedText}"></td>
+                    <td th:text="${preMarket.changeDate}"></td>
                 </tr>
             </tbody>
         </table>
