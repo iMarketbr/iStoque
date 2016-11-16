@@ -1,6 +1,6 @@
 FROM openjdk:8
 
-ENV ISTOQUE_HOME /opt/app
+ENV ISTOQUE_HOME /opt/istoque
 
 RUN mkdir -p /opt/app
 
