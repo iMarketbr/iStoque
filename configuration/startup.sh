@@ -25,6 +25,7 @@ systemctl start docker
 systemctl enable docker
 
 docker login --username=$DOCKER_USER --password=$DOCKER_PASS
+docker pull imarket/$APP
 
 # Mount bucket
 BUCKET_DIR=/opt/bucket
