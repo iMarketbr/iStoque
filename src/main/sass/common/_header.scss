@@ -21,11 +21,15 @@
     
     .menu {
         position: absolute;
-        left: 8em;
-        height: 100%;
         line-height: 4em;
         cursor: pointer;
-        width: 20%;
+        display: inline-block;
+        margin-left: 10%;
+        
+        .dropdown {
+            margin: 0 1em;
+        }
+        
     }
     
     .title {
