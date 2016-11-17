@@ -6,8 +6,6 @@ APP=istoque
 curl -s "https://storage.googleapis.com/signals-agents/logging/google-fluentd-install.sh" | bash
 service google-fluentd restart &
 
-apt-get install apt-transport-https ca-certificates
-
 export GCSFUSE_REPO=gcsfuse-`lsb_release -c -s`
 export DOCKER_USER=$(curl http://metadata.google.internal/computeMetadata/v1/instance/attributes/docker_user -H "Metadata-Flavor: Google")
 export DOCKER_PASS=$(curl http://metadata.google.internal/computeMetadata/v1/instance/attributes/docker_pass -H "Metadata-Flavor: Google")
