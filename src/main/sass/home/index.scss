@@ -1,3 +1,58 @@
 @import '../common/base';
 @import '../common/header';
 @import '../common/components';
+
+body {
+    background: url($images-dir + 'background.jpg') no-repeat 100%;
+    background-size: cover;
+}
+
+.welcome {
+    width: 90%;
+    background: $background-gray;
+    border-radius: 5px;
+    margin: 2em auto;
+    box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+    
+    .arrow {
+        display: none;
+        position: absolute;
+        left: 4em;
+        height: 5em;
+        top: calc(50% - 4em);
+    }
+    
+    h2 {
+        background: $primary-color-light;
+        font-size: 2em;
+        text-align: center;
+        color: white;
+        padding: 0.4em;
+    }
+    
+    .content {
+        padding: 1em;
+        position: relative;
+        
+        .description {
+            margin: 2em;
+            text-align: center;
+        }
+    }
+}
+
+@media(min-width: 800px)  {
+    .welcome {
+        width: 60%;
+        margin: 4em auto;
+    }
+}
+
+@media(min-width: 1100px)  {
+    .welcome {
+        
+        .arrow {
+            display: inline-block;
+        }
+    }
+}
