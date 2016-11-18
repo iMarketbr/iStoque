@@ -4,14 +4,24 @@
       header=true,
       css='user/list'
       )">
-    <main layout:fragment="content">
-        <section class="welcome">
-            <h2>Bem-vindo imarketer</h2>
-            <div class="content">
-                <p class="description">Agora voce ja pode gerenciar os mercados e compradores!</p>
-                <img src="/assets/images/arrow.png" class="arrow">
-                <p class="description">Escolha uma das opções acima para administrar os recursos do iMarket.</p>
-            </div>
-        </section>
+    <main class="list-users" layout:fragment="content">
+        <h2 class="title">Usuários</h2>
+        <p class="explanation">Escolha uma usuario para ver detalhes ou alterar permissões</p>
+        <table class="im-table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Permissões</th>
+                </tr>
+            </thead>
+            <tbody class="users">
+                <tr th:each="user,i : ${users}">
+                    <td th:text="${user.name}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td ></td>
+                </tr>
+            </tbody>
+        </table>
     </main>
 </html>

@@ -1,0 +1,26 @@
+@import '../common/base';
+@import '../common/header';
+@import '../common/components';
+
+
+.list-users{
+    
+    .title {
+        font-size: 1.8em;
+        padding: 1em;
+        text-align: center;
+    }
+    
+    .explanation {
+        text-align: center;
+        margin-top: 1em;
+        margin-bottom: 2em;
+    }
+    
+    .users {
+        td {
+            background: #e2e2e2;
+            color: black;
+        }
+    }   
+}

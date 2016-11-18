@@ -57,3 +57,25 @@ $fab-shadow: 4px;
        }
     }
 }
+
+.im-table {
+    margin: auto;
+    
+    thead {
+        border-bottom: none;
+    }
+    
+    td {
+        color: white;
+        text-align: center;
+        padding: 1.2em 0.3em;
+    }
+    
+    th {
+        background-color: $background-gray;
+        color: black;
+        font-weight: 500;
+        font-size: 1em;
+        padding: 1em 2em;
+    }
+}

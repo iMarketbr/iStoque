@@ -1,5 +1,6 @@
 package br.com.imarket.istoque.user;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.repository.RepositoryDefinition;
@@ -8,5 +9,7 @@ import org.springframework.data.repository.RepositoryDefinition;
 public interface UserRepository {
 
 	Optional<User> findByEmail(String username);
+
+	List<User> findAll();
 
 }

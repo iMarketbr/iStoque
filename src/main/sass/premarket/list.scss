@@ -8,52 +8,31 @@
         font-size: 1.8em;
         padding: 1em;
         text-align: center;
-    }
-    
-    .table {
-        margin: auto;
+    }    
+
+    .to-approve {
         
-        thead {
-            border-bottom: none;
-        }
-        
-        td {
+        tr {
+            background: $flat-blue;
             color: white;
-            text-align: center;
-            padding: 1.2em 0.3em;
-        }
-        
-        th {
-            background-color: $background-gray;
-            color: black;
-            font-weight: 500;
-            font-size: 1em;
-            padding: 1em 2em;
-        }
-        
-        .to-approve {
-            
-            tr {
-                background: $flat-blue;
-                color: white;
-                cursor: pointer;
-                &:hover {
-                    background-color: $flat-blue-selected;
-                }
-            }
-        }
-        .approved {
-            
-            tr {
-                background: $flat-green;
-            }
-        }
-        .not-approved {
-            tr {
-                background: $primary-color-light;
+            cursor: pointer;
+            &:hover {
+                background-color: $flat-blue-selected;
             }
         }
     }
+    .approved {
+        
+        tr {
+            background: $flat-green;
+        }
+    }
+    .not-approved {
+        tr {
+            background: $primary-color-light;
+        }
+    }
+
 }
 .modal {
  
