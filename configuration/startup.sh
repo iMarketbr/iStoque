@@ -17,7 +17,7 @@ echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | sudo tee /etc
 apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 
 apt-get update
-apt-get install -yq docker-engine gcsfuse
+apt-get install -yq docker-engine gcsfuse 
 
 systemctl start docker
 systemctl enable docker
@@ -34,6 +34,15 @@ gcsfuse configuration.imarketbr.com $BUCKET_DIR
 cp -rfv $BUCKET_DIR/$APP/prod/nginx.conf /opt
 cp -rfv $BUCKET_DIR/ssl/imarketbr.com.crt /opt
 cp -rfv $BUCKET_DIR/ssl/imarketbr.com.key /opt
+
+# Cloud SQL
+SQL_DIR=/opt/cloudsql
+SQL_INSTANCE=imarket-2016:us-east1:imarket-db
+
+mkdir -p $SQL_DIR
+wget https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 -O $SQL_DIR/cloud_sql_proxy
+chmod +x $SQL_DIR/cloud_sql_proxy
+$SQL_DIR/cloud_sql_proxy -instances=$SQL_INSTANCE=tcp:3306 &
 
 # Deploy script
 echo "$DEPLOY_SCRIPT" > /opt/deploy.sh
