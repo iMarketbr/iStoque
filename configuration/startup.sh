@@ -35,15 +35,6 @@ cp -rfv $BUCKET_DIR/$APP/prod/nginx.conf /opt
 cp -rfv $BUCKET_DIR/ssl/imarketbr.com.crt /opt
 cp -rfv $BUCKET_DIR/ssl/imarketbr.com.key /opt
 
-# Cloud SQL
-SQL_DIR=/opt/cloudsql
-SQL_INSTANCE=imarket-2016:us-east1:imarket-db
-
-mkdir -p $SQL_DIR
-wget https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 -O $SQL_DIR/cloud_sql_proxy
-chmod +x $SQL_DIR/cloud_sql_proxy
-$SQL_DIR/cloud_sql_proxy -instances=$SQL_INSTANCE=tcp:3306 &
-
 # Deploy script
 echo "$DEPLOY_SCRIPT" > /opt/deploy.sh
 chmod +x /opt/deploy.sh
